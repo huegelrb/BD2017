@@ -1,0 +1,7 @@
+vi cloudera-manager.repo
+https://archive.cloudera.com/cm5/redhat/6/x86_64/cm/cloudera-manager.repo
+sudo cp cloudera-manager.repo /etc/yum.repos.d/cloudera-manager.repo
+sudo yum install cloudera-manager-daemons cloudera-manager-server -y
+sudo yum install oracle-j2sdk1.7 -y    
+sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql Datenbank root test
+service cloudera-scm-server start

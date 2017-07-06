@@ -1,0 +1,30 @@
+sudo vi /etc/sysctl.conf
+	vm.swappiness = 1
+sudo vi /etc/rc.d/rc.local
+	if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+	echo never > /sys/kernel/mm/transparent_hugepage/enabled
+	fi
+	if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
+	echo never > /sys/kernel/mm/transparent_hugepage/defrag
+	fi
+sudo vi /etc/selinux/config
+	SELINUX=disabled
+sudo yum install ntp -y
+sudo service ntpd start
+sudo yum install nscd -y
+sudo service nscd start
+sudo vi /etc/yum.repos.d/MariaDB.repo
+	# MariaDB 5.5 RedHat repository list - created 2017-07-06 14:54 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/5.5/rhel6-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+sudo yum install MariaDB-server MariaDB-client -y
+sudo /etc/init.d/mysql start
+sudo /etc/init.d/mysql status
+sudo mysql_secure_installation
+mysqladmin -u root -p version
+mysql -u root -p
+

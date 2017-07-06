@@ -1,0 +1,56 @@
+ec2-54-93-246-7.eu-central-1.compute.amazonaws.com
+
+[ec2-user@ip-172-31-15-165 ~]$ mysqladmin -u root -p version
+Enter password:
+mysqladmin  Ver 9.0 Distrib 5.5.56-MariaDB, for Linux on x86_64
+Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
+
+Server version          5.5.56-MariaDB
+Protocol version        10
+Connection              Localhost via UNIX socket
+UNIX socket             /var/lib/mysql/mysql.sock
+Uptime:                 30 min 14 sec
+
+Threads: 1  Questions: 41  Slow queries: 0  Opens: 1  Flush tables: 2  Open tables: 27  Queries per second avg: 0.022
+
+MariaDB [(none)]> create database Datenbank DEFAULT CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> create database rman DEFAULT CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'test';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database metastore DEFAULT CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant all on metastore.* TO 'hive'@'%' IDENTIFIED BY 'test';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database hue DEFAULT CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant all on hue.* TO 'hue'@'%' IDENTIFIED BY 'test';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database oozie;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant all on oozie.* TO 'oozie'@'localhost' IDENTIFIED BY 'test';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> grant all on oozie.* TO 'oozie'@'%' IDENTIFIED BY 'test';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database scm DEFAULT CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant all on scm.* TO 'scm'@'%' IDENTIFIED BY 'test';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database sentry DEFAULT CHARACTER  SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'test';
+Query OK, 0 rows affected (0.00 sec)

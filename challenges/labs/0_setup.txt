@@ -1,5 +1,5 @@
-sudo useradd neymar
-sudo useradd ronaldo
+sudo useradd neymar -u 2010
+sudo useradd ronaldo -u 2016
 
 sudo groupadd barca
 sudo groupadd merengues
@@ -7,8 +7,8 @@ sudo gpasswd -a neymar merengues
 sudo gpasswd -a ronaldo barca
 
 cat /etc/passwd
-
-neymar:x:501:501::/home/neymar:/bin/bash
-ronaldo:x:502:502::/home/ronaldo:/bin/bash
+neymar:x:2010:501::/home/neymar:/bin/bash
+ronaldo:x:2016:502::/home/ronaldo:/bin/bash
+cat /etc/group
 barca:x:503:ronaldo
 merengues:x:504:neymar

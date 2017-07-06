@@ -27,4 +27,26 @@ sudo /etc/init.d/mysql status
 sudo mysql_secure_installation
 mysqladmin -u root -p version
 mysql -u root -p
+	create database Datenbank DEFAULT CHARACTER SET utf8;
+	create database rman DEFAULT CHARACTER SET utf8;
+	grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'test';
+	create database metastore DEFAULT CHARACTER SET utf8;
+	grant all on metastore.* TO 'hive'@'%' IDENTIFIED BY 'test';
+	create database hue DEFAULT CHARACTER SET utf8;
+	grant all on hue.* TO 'hue'@'%' IDENTIFIED BY 'test';
+	create database oozie;
+	grant all on oozie.* TO 'oozie'@'localhost' IDENTIFIED BY 'test';
+	grant all on oozie.* TO 'oozie'@'%' IDENTIFIED BY 'test';
+	create database scm DEFAULT CHARACTER SET utf8;
+	grant all on scm.* TO 'scm'@'%' IDENTIFIED BY 'test';
+	create database sentry DEFAULT CHARACTER  SET utf8;
+	grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'test';
+sudo yum install wget -y
+wget https://dev.mysql.com/get/downloads/connector-j/mysql-connector-java-5.1.42.tar.gz
+tar zxvf mysql-connector-java-5.1.42.tar.gz
+sudo mkdir -p /usr/share/java/
+sudo cp mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar /usr/share/java/mysql-connector-java.jar
+
+
+
 
